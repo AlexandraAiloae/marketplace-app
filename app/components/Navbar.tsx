@@ -15,10 +15,19 @@ const Navbar = (props: Props) => {
           <nav className="max-md:hidden">
             <ul className="flex items-center lg:space-x-10 space-x-7 opacity-70 text-[15px]">
               <li>
-                <a className="py-3 inline-block w-full">Filters</a>
+                <a href="/filters" className="py-3 inline-block w-full">
+                  Filters
+                </a>
               </li>
               <li>
-                <a className="py-3 inline-block w-full">Products</a>
+                <a href="/products" className="py-3 inline-block w-full">
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="/addproduct" className="py-3 inline-block w-full">
+                  Add Product
+                </a>
               </li>
             </ul>
           </nav>
