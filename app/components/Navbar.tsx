@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import SearchBar from "./SearchBar";
 
 type Props = {};
 
@@ -21,6 +22,9 @@ const Navbar = (props: Props) => {
               </li>
             </ul>
           </nav>
+        </div>
+        <div className="flex items-center space-x-4">
+          <SearchBar />
         </div>
       </div>
     </div>
