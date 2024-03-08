@@ -7,7 +7,7 @@ type Props = {};
 const Item = async (props: Props) => {
   const products = await prisma.product.findMany();
   if (products.length === 0) {
-    return <div>We Can't Find Any Products Here! 🕵️‍♂️</div>;
+    return <div>We Can&apos;t Find Any Products Here! 🕵️‍♂️</div>;
   }
   return (
     <div className="py-5">
