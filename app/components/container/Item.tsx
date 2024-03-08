@@ -6,6 +6,7 @@ type Props = {};
 
 const Item = async (props: Props) => {
   const products = await prisma.product.findMany();
+
   if (products.length === 0) {
     return <div>We Can&apos;t Find Any Products Here! 🕵️‍♂️</div>;
   }
@@ -29,7 +30,7 @@ const Item = async (props: Props) => {
                   </h1>
                 </div>
                 <span className="px-2 font-medium bg-gray-100 rounded-lg">
-                  ${product.price}.00 RON
+                  {product.price}.00 €
                 </span>
               </div>
             </Link>
