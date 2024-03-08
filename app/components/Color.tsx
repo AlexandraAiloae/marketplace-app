@@ -9,16 +9,18 @@ interface Props {
 
 const Color: React.FC<Props> = ({ setFormData, Color }) => {
   const [open, setOpen] = useState<boolean>(false);
-  const [sketchColor, setSketchColor] = useState("#fff"); // State for SketchPicker
+  const [sketchColor, setSketchColor] = useState("#fff");
 
-  const colorArray: string[] = Color.split(",");
-  const [selectedColors, setSelectColors] = useState<string[]>(colorArray);
+  const colorArray: string[] = Color.split(",").filter((c) => c.trim() !== "");
+  const [selectedColors, setSelectedColors] = useState<string[]>(colorArray);
 
   const handleColorButtonClick = () => {
-    setSelectColors((prevSelectedColors) => [
-      ...prevSelectedColors,
-      sketchColor,
-    ]);
+    setSelectedColors((prevSelectedColors) => {
+      const filteredPrevSelectedColors = prevSelectedColors.filter(
+        (c) => c.trim() !== ""
+      );
+      return [...filteredPrevSelectedColors, sketchColor];
+    });
     setOpen(false);
   };
 
@@ -33,7 +35,7 @@ const Color: React.FC<Props> = ({ setFormData, Color }) => {
   }, [selectedColors]);
 
   const handleDeleteColor = (indexToDelete: number) => {
-    setSelectColors((prevSelectedColors) => {
+    setSelectedColors((prevSelectedColors) => {
       const updateColors = [...prevSelectedColors];
       updateColors.splice(indexToDelete, 1);
       return updateColors;
@@ -41,7 +43,7 @@ const Color: React.FC<Props> = ({ setFormData, Color }) => {
   };
 
   const handleChangeComplete = (color: any) => {
-    setSketchColor(color.hex); // Update SketchPicker color
+    setSketchColor(color.hex);
   };
 
   return (

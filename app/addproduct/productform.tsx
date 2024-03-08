@@ -53,11 +53,14 @@ const Productform = (props: Props) => {
 
   const handleImageChange = () => {
     const stringimages = JSON.stringify(imageUrls);
-    console.log(formData);
     setFormData({
       ...formData,
       images: stringimages,
     });
+  };
+
+  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, color: e.target.value });
   };
 
   useEffect(() => {
@@ -77,7 +80,7 @@ const Productform = (props: Props) => {
       console.log(error);
     }
   };
-  
+
   return (
     <div className="px-5 max-w-[1280px] mx-auto mb-10">
       <div>
@@ -144,7 +147,7 @@ const Productform = (props: Props) => {
                 className="w-full h-[50px] border-[1px] rounded-lg focus:border-pink-500 px-3 focus:border-2 outline-none"
                 name="color"
                 value={formData.color}
-                onChange={handleTextInputChange}
+                onChange={handleColorChange}
               />
             </div>
             <Color setFormData={setFormData} Color={formData.color} />
