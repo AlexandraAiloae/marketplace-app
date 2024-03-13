@@ -9,7 +9,7 @@ const Container = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const limit = 5;
+  const limit = 10;
 
   useEffect(() => {
     const fetchData = async () => {

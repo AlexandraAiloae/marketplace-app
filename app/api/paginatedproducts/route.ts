@@ -1,7 +1,7 @@
 import prisma from "@/app/prismadb";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: { url: string | URL }) {
+export async function GET(request: NextRequest) {
   const url = new URL(request.url);
   const page = parseInt(url.searchParams.get("page") || "1", 10);
   const limit = parseInt(url.searchParams.get("limit") || "10", 10);
@@ -19,6 +19,9 @@ export async function GET(request: { url: string | URL }) {
     return NextResponse.json({ products, total });
   } catch (error) {
     console.error("Error selecting product", error);
-    return NextResponse.error();
+    return NextResponse.json(
+      { error: "Error selecting product" },
+      { status: 500 }
+    );
   }
 }
