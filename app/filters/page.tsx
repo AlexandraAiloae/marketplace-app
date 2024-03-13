@@ -25,7 +25,6 @@ const Page = (props: Props) => {
             },
           })
           .then((response) => {
-            console.log("response", response.data.products);
             setResponse(response.data.products)
           });
       } catch (error) {

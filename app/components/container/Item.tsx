@@ -1,15 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import prisma from "@/app/prismadb";
+import { Product } from "./../../common/types";
 
-type Props = {};
+type Props = {
+  products: Product[];
+};
 
-const Item = async (props: Props) => {
-  const products = await prisma.product.findMany();
-
-  if (products.length === 0) {
-    return <div>We Can&apos;t Find Any Products Here! 🕵️‍♂️</div>;
-  }
+const Item: React.FC<Props> = ({ products }) => {
   return (
     <div className="py-5">
       <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-20 gap-12 ">
