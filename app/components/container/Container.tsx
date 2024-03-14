@@ -7,28 +7,54 @@ import axios from "axios";
 
 const Container = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [productsCache, setProductsCache] = useState<{
+    [key: number]: Product[];
+  }>({});
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const limit = 10;
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (pageToFetch: number) => {
+      if (productsCache[pageToFetch]) {
+        if (pageToFetch === page) {
+          setProducts(productsCache[pageToFetch]);
+        }
+        return;
+      }
+
       try {
         const response = await axios.get(
-          `/api/paginatedproducts?page=${page}&limit=${limit}`
+          `/api/paginatedproducts?page=${pageToFetch}&limit=${limit}`
         );
-        setProducts(response.data.products);
-        setTotalPages(Math.ceil(response.data.total / limit));
+        const newProducts = response.data.products;
+        setProductsCache((prevCache) => ({
+          ...prevCache,
+          [pageToFetch]: newProducts,
+        }));
+
+        if (pageToFetch === page) {
+          setProducts(newProducts);
+          setTotalPages(Math.ceil(response.data.total / limit));
+        }
       } catch (error) {
         console.error("Error fetching data", error);
       }
     };
 
-    fetchData();
-  }, [page]);
+    fetchData(page);
+
+    if (page > 1) {
+      fetchData(page - 1);
+    }
+    fetchData(page + 1);
+  }, [page, productsCache]);
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
+    if (productsCache[newPage]) {
+      setProducts(productsCache[newPage]);
+    }
   };
 
   if (products.length === 0) {
