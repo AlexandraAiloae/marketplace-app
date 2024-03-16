@@ -121,6 +121,7 @@ const Productform = (props: Props) => {
               type="number"
               className="w-full h-[50px] border-[1px] rounded-lg focus:border-yellow-800 px-3 focus:border-2 outline-none"
               name="inventory"
+              min="0"
               value={formData.inventory}
               onChange={handleNumberInputChange}
             />
@@ -133,6 +134,7 @@ const Productform = (props: Props) => {
               type="number"
               className="w-full h-[50px] border-[1px] rounded-lg focus:border-yellow-800 px-3 focus:border-2 outline-none"
               name="price"
+              min="0"
               value={formData.price}
               onChange={handleNumberInputChange}
             />
