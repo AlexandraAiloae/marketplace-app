@@ -32,7 +32,7 @@ const Filter = (props: Props) => {
         <div className="flex flex-col py-3 pb-5 tet-sm text-neutral-600 border-b-[0.5px]">
           <span
             className={`py-3 px-5 ${
-              props.selectedCategories.includes("Vases") ? "bg-orange-100" : ""
+              props.selectedCategories.includes("Vases") ? "bg-amber-50" : ""
             }`}
             onClick={() => toggleCategory("Vases")}
           >
@@ -40,7 +40,7 @@ const Filter = (props: Props) => {
           </span>
           <span
             className={`py-3 px-5 ${
-              props.selectedCategories.includes("Candles") ? "bg-orange-100" : ""
+              props.selectedCategories.includes("Candles") ? "bg-amber-50" : ""
             }`}
             onClick={() => toggleCategory("Candles")}
           >

@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import SearchBar from "./SearchBar";
-
 type Props = {};
 
 const Navbar = (props: Props) => {
@@ -20,20 +18,12 @@ const Navbar = (props: Props) => {
                 </a>
               </li>
               <li>
-                <a href="/products" className="py-3 inline-block w-full">
-                  Products
-                </a>
-              </li>
-              <li>
                 <a href="/addproduct" className="py-3 inline-block w-full">
                   Add Product
                 </a>
               </li>
             </ul>
           </nav>
-        </div>
-        <div className="flex items-center space-x-4">
-          <SearchBar />
         </div>
       </div>
     </div>

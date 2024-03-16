@@ -95,7 +95,7 @@ const Productform = (props: Props) => {
             </label>
             <input
               type="text"
-              className="w-full h-[50px] border-[1px] rounded-lg focus:border-pink-500 px-3 focus:border-2 outline-none"
+              className="w-full h-[50px] border-[1px] rounded-lg focus:border-yellow-800 px-3 focus:border-2 outline-none"
               name="title"
               value={formData.title}
               onChange={handleTextInputChange}
@@ -107,7 +107,7 @@ const Productform = (props: Props) => {
             </label>
             <input
               type="text"
-              className="w-full h-[50px] border-[1px] rounded-lg focus:border-pink-500 px-3 focus:border-2 outline-none"
+              className="w-full h-[50px] border-[1px] rounded-lg focus:border-yellow-800 px-3 focus:border-2 outline-none"
               name="category"
               value={formData.category}
               onChange={handleTextInputChange}
@@ -119,7 +119,7 @@ const Productform = (props: Props) => {
             </label>
             <input
               type="number"
-              className="w-full h-[50px] border-[1px] rounded-lg focus:border-pink-500 px-3 focus:border-2 outline-none"
+              className="w-full h-[50px] border-[1px] rounded-lg focus:border-yellow-800 px-3 focus:border-2 outline-none"
               name="inventory"
               value={formData.inventory}
               onChange={handleNumberInputChange}
@@ -131,7 +131,7 @@ const Productform = (props: Props) => {
             </label>
             <input
               type="number"
-              className="w-full h-[50px] border-[1px] rounded-lg focus:border-pink-500 px-3 focus:border-2 outline-none"
+              className="w-full h-[50px] border-[1px] rounded-lg focus:border-yellow-800 px-3 focus:border-2 outline-none"
               name="price"
               value={formData.price}
               onChange={handleNumberInputChange}
@@ -144,7 +144,7 @@ const Productform = (props: Props) => {
               </label>
               <input
                 type="text"
-                className="w-full h-[50px] border-[1px] rounded-lg focus:border-pink-500 px-3 focus:border-2 outline-none"
+                className="w-full h-[50px] border-[1px] rounded-lg focus:border-yellow-800 px-3 focus:border-2 outline-none"
                 name="color"
                 value={formData.color}
                 onChange={handleColorChange}
@@ -157,7 +157,7 @@ const Productform = (props: Props) => {
           Description about your product
         </label>
         <textarea
-          className="w-full h-[50px] border-[1px] rounded-lg focus:border-pink-500 px-3 focus:border-2 outline-none"
+          className="w-full h-[50px] border-[1px] rounded-lg focus:border-yellow-800 px-3 focus:border-2 outline-none"
           name="description"
           value={formData.description}
           onChange={handleTextareaChange}
@@ -174,7 +174,7 @@ const Productform = (props: Props) => {
         />
         <button
           onClick={postData}
-          className="text-white mt-10 border-[1px] bg-purple-500 rounded-lg px-5 p-2"
+          className="text-white mt-10 border-[1px] bg-yellow-700 rounded-lg px-5 p-2"
         >
           Submit
         </button>

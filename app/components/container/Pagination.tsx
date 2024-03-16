@@ -66,7 +66,7 @@ const Pagination = ({
       {
         "rounded-l-sm": position === "first" || position === "single",
         "rounded-r-sm": position === "last" || position === "single",
-        "z-10 bg-blue-100 border-blue-500 text-white": isActive,
+        "z-10 bg-yellow-600 border-yellow-800 text-white": isActive,
         "hover:bg-gray-100": !isActive && position !== "middle",
         "text-gray-300 pointer-events-none": position === "middle",
       }

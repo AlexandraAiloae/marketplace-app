@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import Pagination from "./Pagination";
-import { Product } from "./../../common/types";
+import { Product } from "../../common/types";
 import axios from "axios";
 
 const Container = () => {
@@ -12,14 +12,17 @@ const Container = () => {
   }>({});
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const limit = 10;
 
   useEffect(() => {
     const fetchData = async (pageToFetch: number) => {
+      setIsLoading(true);
       if (productsCache[pageToFetch]) {
         if (pageToFetch === page) {
           setProducts(productsCache[pageToFetch]);
         }
+        setIsLoading(false);
         return;
       }
 
@@ -39,11 +42,12 @@ const Container = () => {
         }
       } catch (error) {
         console.error("Error fetching data", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData(page);
-
     if (page > 1) {
       fetchData(page - 1);
     }
@@ -57,17 +61,25 @@ const Container = () => {
     }
   };
 
-  if (products.length === 0) {
-    return <div>We Can&apos;t Find Any Products Here! 🕵️‍♂️</div>;
-  }
   return (
     <div className="mb-[200px]">
-      <div className="flex ">
-        <div className="px-20">
-          <Item products={products} />
-        </div>
-      </div>
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} />
+      {isLoading && products.length == 0 ? (
+        <div>Loading Products... Please wait! 🔄</div>
+      ) : (
+        <>
+          <div className="flex">
+            <div className="px-20">
+              <Item products={products} />
+            </div>
+          </div>
+          {totalPages > 0 && (
+            <Pagination
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 };

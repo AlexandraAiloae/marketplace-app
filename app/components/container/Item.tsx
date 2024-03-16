@@ -16,13 +16,13 @@ const Item: React.FC<Props> = ({ products }) => {
               <div className="relative rounded-lg">
                 <img
                   src={product.images.split(",")[0]}
-                  className="w-[250px] h-[300px] object-cover object-top rounded-lg"
+                  className="w-[300px] h-[350px] object-cover object-top rounded-lg"
                   alt=""
                 />
               </div>
               <div className="flex items-center justify-between mt-4">
                 <div>
-                  <h1 className="text-[14px] font-medium max-w-[150px] whitespace-nowrap overflow-hidden">
+                  <h1 className="text-[14px] font-medium max-w-[200px] whitespace-nowrap overflow-hidden">
                     {product.title}
                   </h1>
                 </div>
