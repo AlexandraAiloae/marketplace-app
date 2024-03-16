@@ -17,8 +17,8 @@ const ImageGallery = ({ imageUrls }: Props) => {
               onClick={() => setSelectedImage(index)}
               className={`w-[70px] h-[70px] rounded-lg mb-3 p-1 object-cover object-top ${
                 selectedImage === index
-                  ? "border-[1px] border-purple-500"
-                  : "border-[1px] border-purple-200"
+                  ? "border-[1px] border-yellow-700"
+                  : "border-[1px] border-yellow-300"
               }`}
               src={url}
               alt={`Image ${index + 1}`}
